@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PERIN Chinese Lingo Matrix - 214 Radicals Max Edition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --cyber-black: #050806;
+            --cyber-dark-gray: #121815;
+            --cyber-light-gray: #1f2924;
+            --zen-stone: #5c6b64;
+            --zen-green: #2e6f40;
+            --neon-mint: #00ff88;
+            --text-main: #FFFFFF;
+            --text-muted: #a3b899;
+            --error-red: #ff3333;
+            --clean-white: #f4fcf7;
+            --neon-blue: #00f3ff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--cyber-black);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .app-window {
+            width: 100vw;
+            height: 100vh;
+            max-width: 480px;
+            max-height: 900px;
+            background: linear-gradient(180deg, #102015 0%, var(--cyber-black) 50%);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+        }
+
+        @media (min-width: 481px) {
+            .app-window {
+                border-radius: 20px;
+                height: 95vh;
+                border: 2px solid var(--zen-green);
+            }
+        }
+
+        /* IMMERSIVE INTERACTIVE SPLASH SCREEN */
+        .intro-splash {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at center, #0d1f14 0%, #020503 100%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: opacity 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+            cursor: pointer;
+        }
+
+        .cyber-grid {
+            position: absolute;
+            width: 200%; height: 200%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 136, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 136, 0.05) 1px, transparent 1px);
+            background-size: 25px 25px;
+            transform: perspective(500px) rotateX(65deg);
+            top: -50%;
+            animation: gridMove 6s linear infinite;
+        }
+
+        @keyframes gridMove {
+            from { transform: perspective(500px) rotateX(65deg) translateY(0); }
+            to { transform: perspective(500px) rotateX(65deg) translateY(50px); }
+        }
+
+        .animated-logo-text {
+            font-size: 32px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 6px;
+            text-align: center;
+            position: relative;
+            text-shadow: 0 0 10px var(--zen-green), 0 0 20px var(--neon-mint);
+        }
+
+        .animated-sub-text {
+            font-size: 11px;
+            color: var(--neon-mint);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-top: 15px;
+            text-shadow: 0 0 8px rgba(0, 255, 136, 0.6);
+        }
+
+        .cyber-loader {
+            width: 140px;
+            height: 3px;
+            background: rgba(255,255,255,0.1);
+            margin-top: 30px;
+            position: relative;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .cyber-loader::after {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; height: 100%; width: 100%;
+            background: linear-gradient(90deg, var(--zen-green), var(--neon-mint));
+            box-shadow: 0 0 8px var(--neon-mint);
+        }
+
+        .system-pulse-prompt {
+            margin-top: 35px;
+            font-size: 10px;
+            color: var(--neon-mint);
+            letter-spacing: 3px;
+            font-weight: bold;
+            text-transform: uppercase;
+            animation: interactivePulse 1.2s infinite alternate;
+            z-index: 105;
+        }
+
+        @keyframes interactivePulse {
+            from { opacity: 0.3; text-shadow: 0 0 4px var(--neon-mint); }
+            to { opacity: 1; text-shadow: 0 0 12px var(--neon-mint); }
+        }
+
+        /* SCIFI SCANNER TRACKER */
+        .scifi-scanner-container {
+            width: 100%;
+            height: 5px;
+            background: rgba(0, 255, 136, 0.05);
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(0, 255, 136, 0.15);
+        }
+
+        .scifi-laser-beam {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 120px;
+            background: linear-gradient(90deg, transparent, var(--neon-mint), var(--zen-green), transparent);
+            box-shadow: 0 0 12px var(--neon-mint), 0 0 6px var(--zen-green);
+            animation: laserScan 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+
+        @keyframes laserScan {
+            0% { left: -130px; }
+            50% { left: 100%; }
+            100% { left: -130px; }
+        }
+
+        /* CELEBRATION ZONE */
+        .celebration-zone {
+            width: 100%;
+            height: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            opacity: 0;
+        }
+
+        @keyframes burst {
+            0% { transform: translate(0, 15px) scale(1); opacity: 1; }
+            100% { transform: translate(var(--x), var(--y)) scale(0.3); opacity: 0; }
+        }
+
+        .app-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 16px;
+            background: rgba(10, 15, 12, 0.9);
+            backdrop-filter: blur(20px);
+            z-index: 10;
+            border-bottom: 2px solid var(--zen-green);
+        }
+
+        .audio-ribbon {
+            display: flex;
+            gap: 8px;
+        }
+
+        .toggle-btn {
+            background: var(--cyber-light-gray);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            color: var(--text-main);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .toggle-btn.active {
+            background: var(--neon-mint);
+            color: black;
+            border-color: var(--neon-mint);
+            box-shadow: 0 2px 8px rgba(0,255,136,0.4);
+        }
+
+        .test-mode-selector-strip {
+            display: flex;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 12px;
+            padding: 4px;
+            margin-bottom: 12px;
+            gap: 4px;
+        }
+
+        .mode-pill {
+            flex: 1;
+            text-align: center;
+            padding: 10px 4px;
+            font-size: 11px;
+            font-weight: bold;
+            color: var(--text-muted);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .mode-pill.active {
+            background: var(--zen-green);
+            color: white;
+            box-shadow: 0 2px 8px rgba(46, 111, 64, 0.4);
+            border: 1px solid var(--neon-mint);
+        }
+
+        .timeline-container {
+            width: 100%;
+            height: 5px;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .timeline-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--zen-green), var(--neon-mint));
+            transition: width 0.3s ease;
+        }
+
+        .screen-canvas {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .screen-view {
+            display: none;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+
+        .screen-view.active { display: flex; }
+
+        .scenic-banner {
+            width: 100%;
+            height: 110px;
+            border-radius: 12px;
+            margin-bottom: 14px;
+            border: 2px solid var(--zen-green);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .scenic-banner.great-wall {
+            background-image: linear-gradient(135deg, rgba(10,25,15,0.5) 0%, rgba(5,10,5,0.7) 100%), url('https://images.unsplash.com/photo-1508189860359-777d945909ef?q=80&w=600&auto=format&fit=crop');
+        }
+        .scenic-banner.forbidden-city {
+            background-image: linear-gradient(135deg, rgba(10,25,15,0.5) 0%, rgba(5,10,5,0.7) 100%), url('https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?q=80&w=600&auto=format&fit=crop');
+        }
+
+        .vault-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 14px;
+            padding-bottom: 20px;
+        }
+
+        .vault-item {
+            background: linear-gradient(135deg, #16241c 0%, #090f0b 100%);
+            border-radius: 12px;
+            padding: 16px 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-top: 1px solid rgba(0, 255, 136, 0.2);
+            border-left: 1px solid rgba(0, 255, 136, 0.05);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .vault-item:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #233b2c 0%, #0e1711 100%);
+            border-top: 1px solid var(--neon-mint);
+        }
+
+        .vault-item.combo { 
+            background: linear-gradient(135deg, #0e2b25 0%, #04120f 100%); 
+            border: 1px solid var(--neon-mint);
+            grid-column: span 2;
+            text-align: center;
+            align-items: center;
+        }
+        .vault-icon { font-size: 20px; color: var(--neon-mint); }
+
+        .white-highlight-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f3faf6 100%);
+            color: #121212;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            border-left: 4px solid var(--zen-green);
+        }
+
+        .title-accent { color: var(--clean-white) !important; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+
+        .avatar-uploader {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: var(--cyber-light-gray);
+            margin: 10px auto 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px dashed var(--neon-mint);
+        }
+
+        .avatar-uploader img { width: 100%; height: 100%; object-fit: cover; position: absolute; }
+
+        .spotify-input {
+            width: 100%;
+            background: var(--cyber-light-gray);
+            border: 1px solid rgba(0, 255, 136, 0.15);
+            border-radius: 30px;
+            padding: 12px 18px;
+            color: white;
+            font-size: 14px;
+            margin-bottom: 14px;
+            outline: none;
+        }
+        .spotify-input:focus { border-color: var(--neon-mint); }
+
+        .spotify-btn {
+            background: linear-gradient(90deg, var(--zen-green), #3ba35e);
+            color: white;
+            font-weight: 700;
+            border: 1px solid var(--neon-mint);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 13px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 15px rgba(46, 111, 64, 0.4);
+        }
+
+        .curator-trigger-btn {
+            background: linear-gradient(90deg, #0f1713, #19261f);
+            border: 1px solid rgba(0, 255, 136, 0.15);
+            color: var(--clean-white);
+            padding: 12px 16px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .curator-drawer {
+            display: none;
+            background: var(--cyber-dark-gray);
+            border-radius: 12px;
+            padding: 14px;
+            margin-top: 8px;
+            border: 1px solid var(--zen-green);
+        }
+
+        .bio-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 12px;
+        }
+
+        /* IMMERSIVE VAULT DISPLAY CARD */
+        .art-card {
+            width: 100%;
+            height: 160px;
+            border-radius: 14px;
+            margin-bottom: 12px;
+            position: relative;
+            background: radial-gradient(circle at center, #1b3d26 0%, #09140d 100%);
+            border: 2px solid var(--neon-mint);
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.8), 0 4px 15px rgba(0,255,136,0.15);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .art-card::before {
+            content: '';
+            position: absolute;
+            width: 85%;
+            height: 85%;
+            border: 1px dashed rgba(0, 255, 136, 0.15);
+            border-radius: 8px;
+            animation: rotateMatrix 25s linear infinite;
+        }
+
+        @keyframes rotateMatrix { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        .art-label { 
+            font-size: 64px; 
+            font-weight: 900;
+            color: var(--neon-mint);
+            text-shadow: 0 0 20px var(--zen-green), 0 0 40px rgba(0,255,136,0.5);
+            z-index: 2;
+            user-select: none;
+        }
+
+        .pronounce-trigger {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--neon-mint);
+            color: black;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 5;
+        }
+
+        .option-strip {
+            background: var(--cyber-light-gray);
+            padding: 12px 20px;
+            border-radius: 30px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.2s ease;
+        }
+
+        .option-strip:hover { background: #16291e; border-color: var(--neon-mint); }
+        .option-strip.correct { background: linear-gradient(90deg, #2db366, var(--neon-mint)) !important; color: black; font-weight: bold; }
+        .option-strip.wrong { background: var(--error-red) !important; color: white; font-weight: bold; box-shadow: 0 0 15px var(--error-red); }
+
+        .app-footer { padding: 10px; text-align: center; font-size: 10px; color: var(--text-muted); background: rgba(0,0,0,0.6); }
+    </style>
+</head>
+<body>
+
+    <div class="app-window">
+        <div class="intro-splash" id="splashScreen" onclick="bootMatrixEngine()">
+            <div class="cyber-grid"></div>
+            <div class="animated-logo-text">PERIN LINGO<br><span style="font-size: 15px; color: var(--neon-mint); letter-spacing: 2px;">MATRIX SYSTEM</span></div>
+            <div class="animated-sub-text">214 RADICALS MASTER VAULT</div>
+            <div class="cyber-loader"></div>
+            <div class="system-pulse-prompt">[ CLICK TO UNLOCK MATRIX ]</div>
+        </div>
+
+        <div class="app-header">
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <div id="headerUserAvatar" style="width:26px; height:26px; border-radius:50%; background:#404040; display:none; background-size:cover;"></div>
+                <span style="font-weight:800; font-size:13px; color:var(--neon-mint); letter-spacing: 1px;">PERIN 214 矩阵</span>
+            </div>
+            <div class="audio-ribbon">
+                <button class="toggle-btn" id="bgmToggle" onclick="toggleBgm()"><i class="fas fa-music"></i> BGM</button>
+                <button class="toggle-btn active" id="sfxToggle" onclick="toggleSfx()"><i class="fas fa-volume-up"></i> SFX</button>
+            </div>
+        </div>
+
+        <div class="timeline-container">
+            <div class="timeline-fill" id="appProgress"></div>
+        </div>
+
+        <div class="screen-canvas">
+            <div id="screenProfile" class="screen-view active">
+                <div class="scenic-banner great-wall"></div>
+                <div class="white-highlight-card">
+                    <h2 style="font-weight:900; font-size: 18px; color: var(--zen-green);">Create Matrix Profile</h2>
+                    <p style="color:#555; font-size:12px;">Initialize your full 214 standard radical dashboard.</p>
+                </div>
+                <div class="avatar-uploader" onclick="document.getElementById('fileInput').click()">
+                    <img id="avatarImg" src="" style="display:none;">
+                    <i class="fas fa-user-plus" id="avatarIcon" style="color:var(--text-muted); font-size:18px;"></i>
+                </div>
+                <input type="file" id="fileInput" accept="image/*" style="display:none;" onchange="handleImageUpload(event)">
+                <input type="text" id="nicknameIn" class="spotify-input" placeholder="Enter Matrix Nickname">
+                <button class="spotify-btn" onclick="registerUser()">Access Core System</button>
+            </div>
+
+            <div id="screenDashboard" class="screen-view">
+                <div class="scenic-banner forbidden-city"></div>
+                <div style="margin-bottom: 12px;">
+                    <h2 id="welcomeGreeting" class="title-accent" style="font-size: 20px;">Good day!</h2>
+                    <p style="color:var(--text-muted); font-size:12px; margin-top:2px;">
+                        Select a target vault cluster. Custom 50-track review matrices initiate after every 5th block.
+                    </p>
+                </div>
+
+                <button class="curator-trigger-btn" onclick="toggleCuratorDrawer()">
+                    <span><i class="fas fa-user-shield" style="color:var(--neon-mint); margin-right:8px;"></i> System Curator Profile</span>
+                    <i class="fas fa-chevron-down" id="drawerChevron"></i>
+                </button>
+                
+                <div class="curator-drawer" id="curatorDrawer">
+                    <div class="bio-row"><span>Curator</span><strong>John Carlo Perin</strong></div>
+                    <div class="bio-row"><span>Core Configuration</span><strong>214 Kangxi Radical Framework</strong></div>
+                    <div class="bio-row"><span>System Architecture</span><strong>Shuffled On-Demand Matrix</strong></div>
+                    <div class="bio-row"><span>Milestone Steps</span><strong>5-Vault Combo Super-Cycles</strong></div>
+                </div>
+
+                <h3 class="title-accent" style="font-size:11px; text-transform:uppercase; letter-spacing:1.5px; margin-top:20px; color: var(--neon-mint) !important;">Active Radical Playlist Vaults</h3>
+                <div class="vault-grid" id="vaultGridContainer"></div>
+            </div>
+
+            <div id="screenQuiz" class="screen-view">
+                <div class="test-mode-selector-strip">
+                    <div class="mode-pill active" id="modeEng" onclick="changeTestMode('english')">Meaning</div>
+                    <div class="mode-pill" id="modePyn" onclick="changeTestMode('pinyin')">Pinyin</div>
+                    <div class="mode-pill" id="modeHz" onclick="changeTestMode('hanzi')">Hanzi</div>
+                </div>
+
+                <div class="art-card" id="quizArtDisplay">
+                    <div class="art-label" id="quizPromptHanzi">一</div>
+                    <button class="pronounce-trigger" onclick="pronounceCurrentItem(event)">
+                        <i class="fas fa-volume-up"></i>
+                    </button>
+                </div>
+
+                <div class="celebration-zone" id="celebrationZone"></div>
+
+                <h3 id="quizQuestionPromptText" class="title-accent" style="font-size:14px; margin-bottom:12px; text-align: center;">Identify the Matching Target:</h3>
+                <div id="quizOptionsStack" style="display:flex; flex-direction:column; flex:1;"></div>
+                <button class="toggle-btn" onclick="navigateHome()" style="padding:10px 18px; align-self: flex-start; margin-top: 10px;"><i class="fas fa-arrow-left"></i> Abort Run</button>
+            </div>
+
+            <div id="screenResult" class="screen-view" style="justify-content:center; align-items:center; text-align:center; gap:16px;">
+                <i class="fas fa-crown" style="font-size:44px; color:var(--neon-mint);"></i>
+                <h2 class="title-accent">Cluster Synchronized!</h2>
+                <p id="resultFeedbackText" style="color:var(--text-muted); font-size:13px; max-width:280px;"></p>
+                <button class="spotify-btn" onclick="navigateHome()">Return to Control Unit</button>
+            </div>
+        </div>
+
+        <div class="scifi-scanner-container">
+            <div class="scifi-laser-beam"></div>
+        </div>
+
+        <footer class="app-footer">
+            Designed by John Carlo Perin. Real-time encryption module updated June 22, 2026.
+        </footer>
+    </div>
+
+    <script>
+        let audioCtx = null, sfxEnabled = true, bgmNoteIndex = 0, bgmTimer = null;
+        let activeTestMode = 'english';
+        const melody = [{f:392,d:0.4},{f:440,d:0.4},{f:466,d:0.4},{f:523,d:0.8},{f:392,d:0.4}];
+
+        function initAudio() { if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+        
+        // --- PREMIUM BRAND NEW ALIVE TONE (Netflix style but Cyberpunk) ---
+        function playPremiumWelcomeSound() {
+            if (!sfxEnabled) return;
+            initAudio();
+            if (!audioCtx) return;
+            
+            let now = audioCtx.currentTime;
+            
+            // STRIKE 1: Cinematic Sub-Bass Impact (The "TA-")
+            let subOsc = audioCtx.createOscillator();
+            let subGain = audioCtx.createGain();
+            subOsc.type = 'sine';
+            subOsc.frequency.setValueAtTime(68, now);
+            subOsc.frequency.exponentialRampToValueAtTime(32, now + 0.35);
+            subGain.gain.setValueAtTime(0.6, now);
+            subGain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+            subOsc.connect(subGain); subGain.connect(audioCtx.destination);
+            subOsc.start(now); subOsc.stop(now + 0.45);
+
+            // STRIKE 2: Brilliant Electronic Shimmer Stack (The "-DUM" Matrix Swell, 130ms later)
+            setTimeout(() => {
+                let now2 = audioCtx.currentTime;
+                
+                // Low mid-body warmth filter
+                let midOsc = audioCtx.createOscillator();
+                let midGain = audioCtx.createGain();
+                midOsc.type = 'triangle';
+                midOsc.frequency.setValueAtTime(130, now2);
+                midOsc.frequency.linearRampToValueAtTime(145, now2 + 0.4);
+                midGain.gain.setValueAtTime(0.25, now2);
+                midGain.gain.exponentialRampToValueAtTime(0.001, now2 + 0.5);
+                midOsc.connect(midGain); midGain.connect(audioCtx.destination);
+                midOsc.start(now2); midOsc.stop(now2 + 0.5);
+
+                // Sparkling High-Fidelity Harmony (G-Major-9 Futuristic Neon Chord Array)
+                let luxuryFrequencies = [392.00, 493.88, 587.33, 739.99, 880.00, 1174.66];
+                luxuryFrequencies.forEach((freq, index) => {
+                    let chimeOsc = audioCtx.createOscillator();
+                    let chimeGain = audioCtx.createGain();
+                    
+                    chimeOsc.type = (index % 2 === 0) ? 'sine' : 'triangle';
+                    chimeOsc.frequency.setValueAtTime(freq, now2);
+                    chimeOsc.detune.setValueAtTime((index - 2.5) * 8, now2); // Lush analog detuning width
+                    
+                    chimeGain.gain.setValueAtTime(0.05, now2);
+                    chimeGain.gain.exponentialRampToValueAtTime(0.0001, now2 + 1.2 + (index * 0.08));
+                    
+                    chimeOsc.connect(chimeGain); chimeGain.connect(audioCtx.destination);
+                    chimeOsc.start(now2); chimeOsc.stop(now2 + 1.8);
+                });
+            }, 130);
+        }
+
+        let userSession = { nickname: "", avatar: "" }, activeQuizPool = [], activeQuizIndex = 0, activeScore = 0;
+
+        // BOOT MANAGER: Unlocks audio permissions, reads local state storage, routes UI views
+        function bootMatrixEngine() {
+            playPremiumWelcomeSound();
+            
+            const splash = document.getElementById('splashScreen');
+            splash.style.opacity = '0';
+            setTimeout(() => { splash.style.display = 'none'; }, 600);
+
+            // Read LocalStorage Memory Space to preserve profile metadata across system reboots
+            const localData = localStorage.getItem('perin_matrix_user_profile');
+            if (localData) {
+                try {
+                    userSession = JSON.parse(localData);
+                    if (userSession && userSession.nickname) {
+                        // Apply Returning Dynamic Custom Greeting Updated String
+                        document.getElementById('welcomeGreeting').innerText = `Welcome Back, ${userSession.nickname}!`;
+                        
+                        if (userSession.avatar) {
+                            const headerAv = document.getElementById('headerUserAvatar');
+                            headerAv.style.backgroundImage = `url(${userSession.avatar})`;
+                            headerAv.style.display = 'block';
+                        }
+                        buildVaultPlaylistGrid();
+                        switchView('screenDashboard');
+                        return;
+                    }
+                } catch(err) { console.error("Memory parsing error cleared.", err); }
+            }
+            
+            // New Session routing fallback
+            switchView('screenProfile');
+        }
+
+        function playBgmTick() {
+            if (!audioCtx || !bgmTimer) return;
+            let item = melody[bgmNoteIndex];
+            let now = audioCtx.currentTime;
+            let osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
+            osc.type = 'triangle'; osc.frequency.setValueAtTime(item.f, now);
+            gain.gain.setValueAtTime(0, now); gain.gain.linearRampToValueAtTime(0.02, now+0.05);
+            gain.gain.exponentialRampToValueAtTime(0.001, now+item.d*2);
+            osc.connect(gain); gain.connect(audioCtx.destination);
+            osc.start(now); osc.stop(now+item.d*2.1);
+            bgmNoteIndex = (bgmNoteIndex + 1) % melody.length;
+            bgmTimer = setTimeout(playBgmTick, item.d * 1000);
+        }
+
+        function toggleBgm() {
+            initAudio();
+            const btn = document.getElementById('bgmToggle');
+            if (bgmTimer) { clearTimeout(bgmTimer); bgmTimer = null; btn.classList.remove('active'); }
+            else { btn.classList.add('active'); bgmNoteIndex = 0; bgmTimer = setTimeout(playBgmTick, 10); }
+        }
+
+        function toggleSfx() { sfxEnabled = !sfxEnabled; document.getElementById('sfxToggle').classList.toggle('active', sfxEnabled); }
+
+        function toggleCuratorDrawer() {
+            const dr = document.getElementById('curatorDrawer');
+            const ch = document.getElementById('drawerChevron');
+            if(dr.style.display === "block") { dr.style.display = "none"; ch.className = "fas fa-chevron-down"; }
+            else { dr.style.display = "block"; ch.className = "fas fa-chevron-up"; }
+        }
+
+        // COMPRESSED RADICAL DICTIONARY ARRAY - COMPRISING ALL 214 RADICAL ELEMENTS
+        const rawCompactData = [
+            ["一","yī","One"],["丨","shù","Line"],["丶","diǎn","Dot"],["丿","piě","Slash"],["乙","yǐ","Second"],["亅","gōu","Hook"],["二","èr","Two"],["亠","tóu","Lid"],["人","rén","Person"],["儿","ér","Legs"],
+            ["入","rù","Enter"],["八","bā","Eight"],["冂","jiōng","Down box"],["冖","mì","Cover"],["冫","bīng","Ice"],["几","jī","Table"],["凵","qiǎn","Open box"],["刀","dāo","Knife"],["力","lì","Power"],["勹","bāo","Wrap"],
+            ["匕","bǐ","Spoon"],["匚","fāng","Box"],["匸","xǐ","Hiding enclosure"],["十","shí","Ten"],["卜","bǔ","Divination"],["卩","jié","Seal"],["厂","hǎn","Cliff"],["厶","sī","Private"],["又","yòu","Again"],["口","kǒu","Mouth"],
+            ["囗","wéi","Enclosure"],["土","tǔ","Earth"],["士","shì","Scholar"],["夂","zhǐ","Go"],["夊","suī","Go slowly"],["夕","xī","Night"],["大","dà","Big"],["女","nǚ","Woman"],["子","zǐ","Child"],["宀","mián","Roof"],
+            ["寸","cùn","Inch"],["小","xiǎo","Small"],["尢","wāng","Lame"],["尸","shī","Corpse"],["屮","chè","Sprout"],["山","shān","Mountain"],["巛","chuān","River"],["工","gōng","Work"],["己","jǐ","Oneself"],["巾","jīn","Towel"],
+            ["干","gān","Dry"],["幺","yāo","Short thread"],["广","guǎng","Shelter"],["廴","yǐn","Long stride"],["廾","gǒng","Two hands"],["弋","yì","Shoot"],["弓","gōng","Bow"],["彐","jì","Pig head"],["彡","shān","Bristle"],["彳","chì","Step"],
+            ["心","xīn","Heart"],["戈","gē","Halberd"],["户","hù","Door"],["手","shǒu","Hand"],["支","zhī","Branch"],["攴","pū","Rap"],["文","wén","Script"],["斗","dǒu","Dipper"],["斤","jīn","Axe"],["方","fāng","Square"],
+            ["无","wú","Not"],["日","rì","Sun"],["曰","yuē","Say"],["月","yuè","Moon"],["木","mù","Tree"],["欠","qiàn","Owe"],["止","zhǐ","Stop"],["歹","dǎi","Death"],["殳","shū","Weapon"],["毋","wú","Do not"],
+            ["比","bǐ","Compare"],["毛","máo","Hair"],["氏","shì","Clan"],["气","qì","Steam"],["水","shuǐ","Water"],["火","huǒ","Fire"],["爪","zhǎo","Claw"],["父","fù","Father"],["爻","yáo","Double cross"],["爿","qiáng","Half tree trunk"],
+            ["片","piàn","Slice"],["牙","yá","Tooth"],["牛","niú","Cow"],["犬","quǎn","Dog"],["玄","xuán","Profound"],["玉","yù","Jade"],["瓜","guā","Melon"],["瓦","wǎ","Tile"],["甘","gān","Sweet"],["生","shēng","Life"],
+            ["用","yòng","Use"],["田","tián","Field"],["疋","pǐ","Bolt of cloth"],["疒","nè","Sickness"],["癶","bō","Footsteps"],["白","bái","White"],["皮","pí","Skin"],["皿","mǐn","Dish"],["目","mù","Eye"],["矛","máo","Spear"],
+            ["矢","shǐ","Arrow"],["石","shí","Stone"],["示","shì","Sign"],["禸","róu","Track"],["禾","hé","Grain"],["穴","xué","Cave"],["立","lì","Stand"],["竹","zhú","Bamboo"],["米","mǐ","Rice"],["糸","mì","Silk"],
+            ["缶","fǒu","Jar"],["网","wǎng","Net"],["羊","yáng","Sheep"],["羽","yǔ","Feather"],["老","lǎo","Old"],["而","ér","And"],["耒","lěi","Plow"],["耳","ěr","Ear"],["聿","yù","Brush"],["肉","ròu","Meat"],
+            ["臣","chén","Minister"],["自","zì","Self"],["至","zhì","Arrive"],["臼","jiù","Mortar"],["舌","shé","Tongue"],["舛","chuǎn","Oppose"],["舟","zhōu","Boat"],["艮","gèn","Stopping"],["色","sè","Color"],["草","cǎo","Grass"],
+            ["虍","hū","Tiger stripe"],["虫","chóng","Insect"],["血","xiě","Blood"],["行","xíng","Walk"],["衣","yī","Clothes"],["襾","yà","West"],["见","jiàn","See"],["角","jiǎo","Horn"],["言","yán","Speech"],["谷","gǔ","Valley"],
+            ["豆","dòu","Bean"],["豕","shǐ","Pig"],["豸","zhì","Feline"],["贝","bèi","Shell"],["赤","chì","Red"],["走","zǒu","Run"],["足","zú","Foot"],["身","shēn","Body"],["车","chē","Cart"],["辛","xīn","Bitter"],
+            ["辰","chén","Morning"],["辵","chuò","Walk"],["邑","yì","City"],["酉","yǒu","Wine"],["采","cǎi","Distinguish"],["里","lǐ","Village"],["金","jīn","Gold"],["长","cháng","Long"],["门","mén","Gate"],["阜","fù","Mound"],
+            ["隶","lì","Slave"],["隹","zhuī","Short-tailed bird"],["雨","yǔ","Rain"],["青","qīng","Blue"],["非","fēi","Wrong"],["面","miàn","Face"],["革","gé","Leather"],["韦","wéi","Soft leather"],["韭","jiǔ","Leek"],["音","yīn","Sound"],
+            ["页","yè","Leaf"],["风","fēng","Wind"],["飞","fēi","Fly"],["食","shí","Eat"],["首","shǒu","Head"],["香","xiāng","Fragrant"],["马","mǎ","Horse"],["骨","gǔ","Bone"],["高","gāo","Tall"],["髟","biāo","Hair long"],
+            ["鬥","dòu","Fight"],["鬯","chàng","Sacrificial wine"],["鬲","lì","Cauldron"],["鬼","guǐ","Ghost"],["鱼","yú","Fish"],["鸟","niǎo","Bird"],["卤","lǔ","Salt"],["鹿","lù","Deer"],["麦","mài","Wheat"],["麻","má","Hemp"],
+            ["黄","huáng","Yellow"],["黍","shǔ","Millet"],["黑","hēi","Black"],["黹","zhǐ","Embroidery"],["黽","mǐn","Frog"],["鼎","dǐng","Tripod"],["鼓","gǔ","Drum"],["鼠","shǔ","Rat"],["鼻","bí","Nose"],["齐","qí","Uniform"],
+            ["齿","chǐ","Tooth"],["龙","lóng","Dragon"],["龟","guī","Turtle"],["龠","yuè","Flute"]
+        ];
+
+        const masterRadicalDataset = rawCompactData.map(item => ({ h: item[0], p: item[1], m: item[2] }));
+
+        function handleImageUpload(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const imgEl = document.getElementById('avatarImg');
+                    imgEl.src = event.target.result;
+                    imgEl.style.display = 'block';
+                    document.getElementById('avatarIcon').style.display = 'none';
+                    userSession.avatar = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function switchView(id) {
+            document.querySelectorAll('.screen-view').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function changeTestMode(mode) {
+            activeTestMode = mode;
+            document.querySelectorAll('.mode-pill').forEach(p => p.classList.remove('active'));
+            document.getElementById(`mode${mode === 'english' ? 'Eng' : mode === 'pinyin' ? 'Pyn' : 'Hz'}`).classList.add('active');
+            if(activeQuizPool.length > 0) { presentQuestion(); }
+        }
+
+        function registerUser() {
+            const nicknameIn = document.getElementById('nicknameIn').value.trim();
+            if (!nicknameIn) return alert("Please enter a profile name");
+            userSession.nickname = nicknameIn;
+            
+            // Persist User profile permanently inside LocalStorage context
+            localStorage.setItem('perin_matrix_user_profile', JSON.stringify(userSession));
+            
+            document.getElementById('welcomeGreeting').innerText = `Welcome, ${userSession.nickname}!`;
+            if (userSession.avatar) {
+                const headerAv = document.getElementById('headerUserAvatar');
+                headerAv.style.backgroundImage = `url(${userSession.avatar})`;
+                headerAv.style.display = 'block';
+            }
+            buildVaultPlaylistGrid();
+            switchView('screenDashboard');
+        }
+
+        function buildVaultPlaylistGrid() {
+            const container = document.getElementById('vaultGridContainer');
+            container.innerHTML = "";
+            let chunk = 10;
+            let totalVaults = Math.ceil(masterRadicalDataset.length / chunk);
+            
+            let runningComboPool = [];
+            
+            for (let vNum = 1; vNum <= totalVaults; vNum++) {
+                let startIdx = (vNum - 1) * chunk;
+                let sliceData = masterRadicalDataset.slice(startIdx, startIdx + chunk);
+                
+                runningComboPool.push(...sliceData);
+                
+                let card = document.createElement('div');
+                card.className = "vault-item";
+                card.onclick = () => launchQuizSession(`Vault Cluster ${vNum}`, sliceData);
+                card.innerHTML = `
+                    <i class="fas fa-cubes vault-icon"></i>
+                    <div style="font-weight:800; font-size:12px; color:var(--clean-white);">Vault Set ${vNum}</div>
+                    <div style="color:var(--text-muted); font-size:11px;">Items ${startIdx + 1} - ${Math.min(startIdx + chunk, masterRadicalDataset.length)}</div>
+                `;
+                container.appendChild(card);
+                
+                if (vNum % 5 === 0 || vNum === totalVaults) {
+                    let comboCard = document.createElement('div');
+                    comboCard.className = "vault-item combo";
+                    let snapshotComboPool = [...runningComboPool];
+                    let comboIndex = Math.ceil(vNum / 5);
+                    
+                    comboCard.onclick = () => launchQuizSession(`Combo Milestone Matrix ${comboIndex}`, snapshotComboPool);
+                    comboCard.innerHTML = `
+                        <i class="fas fa-layer-group vault-icon" style="color:var(--neon-mint); font-size: 22px;"></i>
+                        <div style="font-weight:800; font-size:13px; color:var(--neon-mint); letter-spacing: 0.5px;">COMBO MATRIX ${comboIndex}</div>
+                        <div style="color:var(--clean-white); font-size:11px;">Reviewing Last 50 Tracks (Cumulative)</div>
+                    `;
+                    container.appendChild(comboCard);
+                    
+                    if (vNum % 5 === 0) {
+                        runningComboPool = [];
+                    }
+                }
+            }
+        }
+
+        function shuffleArray(arr) { return arr.sort(() => Math.random() - 0.5); }
+
+        function launchQuizSession(title, data) {
+            activeQuizPool = shuffleArray([...data]); 
+            activeQuizIndex = 0; 
+            activeScore = 0;
+            switchView('screenQuiz'); 
+            presentQuestion();
+        }
+
+        function presentQuestion() {
+            document.getElementById('celebrationZone').innerHTML = '';
+            const targetItem = activeQuizPool[activeQuizIndex];
+            document.getElementById('appProgress').style.width = `${((activeQuizIndex) / activeQuizPool.length) * 100}%`;
+            
+            if(activeTestMode === 'hanzi') {
+                document.getElementById('quizPromptHanzi').innerText = "?";
+                document.getElementById('quizQuestionPromptText').innerText = `Identify Radical for: "${targetItem.m}" (${targetItem.p})`;
+            } else if (activeTestMode === 'pinyin') {
+                document.getElementById('quizPromptHanzi').innerText = targetItem.h;
+                document.getElementById('quizQuestionPromptText').innerText = `Identify the correct PINYIN string:`;
+            } else {
+                document.getElementById('quizPromptHanzi').innerText = targetItem.h;
+                document.getElementById('quizQuestionPromptText').innerText = `Identify the correct MEANING match:`;
+            }
+
+            let distractors = masterRadicalDataset.filter(x => x.h !== targetItem.h);
+            shuffleArray(distractors);
+
+            let getLabel = (item) => {
+                if(activeTestMode === 'english') return item.m;
+                if(activeTestMode === 'pinyin') return item.p;
+                if(activeTestMode === 'hanzi') return item.h;
+                return item.m;
+            };
+
+            let choices = [{ label: getLabel(targetItem), truth: true }];
+            for(let i=0; i<3; i++) {
+                if(distractors[i]) choices.push({ label: getLabel(distractors[i]), truth: false });
+            }
+            shuffleArray(choices);
+
+            const optionsStack = document.getElementById('quizOptionsStack');
+            optionsStack.innerHTML = "";
+            choices.forEach(c => {
+                let strip = document.createElement('div');
+                strip.className = "option-strip";
+                strip.innerText = c.label;
+                strip.onclick = () => evaluateChoiceSelection(strip, c.truth);
+                optionsStack.appendChild(strip);
+            });
+        }
+
+        function evaluateChoiceSelection(element, isTrue) {
+            const container = document.getElementById('quizOptionsStack');
+            if (container.classList.contains('frozen')) return;
+            container.classList.add('frozen');
+
+            if (isTrue) { 
+                element.classList.add('correct'); 
+                playSoundEffect('correct'); 
+                triggerCelebrationAnimation();
+                activeScore++; 
+            } else { 
+                element.classList.add('wrong'); 
+                playSoundEffect('wrong');
+                Array.from(container.children).forEach(child => {
+                    if(child.innerText === getTargetLabelValue()) child.classList.add('correct');
+                });
+            }
+
+            setTimeout(() => {
+                container.classList.remove('frozen'); 
+                activeQuizIndex++;
+                if (activeQuizIndex < activeQuizPool.length) { 
+                    presentQuestion(); 
+                } else {
+                    document.getElementById('appProgress').style.width = `100%`;
+                    document.getElementById('resultFeedbackText').innerText = `Vault complete! You cleared ${activeScore} out of ${activeQuizPool.length} tracks properly.`;
+                    switchView('screenResult');
+                }
+            }, 1200);
+        }
+
+        function getTargetLabelValue() {
+            const targetItem = activeQuizPool[activeQuizIndex];
+            if(activeTestMode === 'english') return targetItem.m;
+            if(activeTestMode === 'pinyin') return targetItem.p;
+            if(activeTestMode === 'hanzi') return targetItem.h;
+            return targetItem.m;
+        }
+
+        function pronounceCurrentItem(e) {
+            if(e) e.stopPropagation();
+            if ('speechSynthesis' in window) {
+                let targetCharacter = activeQuizPool[activeQuizIndex].h;
+                let ut = new SpeechSynthesisUtterance(targetCharacter);
+                ut.lang = 'zh-CN'; window.speechSynthesis.speak(ut);
+            }
+        }
+
+        function playSoundEffect(type) {
+            if (!sfxEnabled) return;
+            initAudio();
+            let now = audioCtx.currentTime;
+            let gain = audioCtx.createGain();
+            if (type === 'correct') {
+                let osc1 = audioCtx.createOscillator(), osc2 = audioCtx.createOscillator();
+                osc1.type = 'sine'; osc2.type = 'triangle';
+                osc1.frequency.setValueAtTime(523.25, now);
+                osc1.frequency.setValueAtTime(659.25, now + 0.08);
+                osc2.frequency.setValueAtTime(783.99, now + 0.14);
+                gain.gain.setValueAtTime(0.12, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+                osc1.connect(gain); osc2.connect(gain); gain.connect(audioCtx.destination);
+                osc1.start(now); osc2.start(now); osc1.stop(now + 0.4); osc2.stop(now + 0.4);
+            } else {
+                let osc = audioCtx.createOscillator();
+                osc.type = 'sawtooth'; osc.frequency.setValueAtTime(120.00, now);
+                osc.frequency.linearRampToValueAtTime(75.00, now + 0.4);
+                gain.gain.setValueAtTime(0.15, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+                osc.connect(gain); gain.connect(audioCtx.destination);
+                osc.start(now); osc.stop(now + 0.4);
+            }
+        }
+
+        function triggerCelebrationAnimation() {
+            const zone = document.getElementById('celebrationZone');
+            zone.innerHTML = '';
+            const colors = ['#00ff88', '#2e6f40', '#00f3ff', '#a3b899'];
+            for (let i = 0; i < 20; i++) {
+                let confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = '50%'; confetti.style.bottom = '0px';
+                let xMove = (Math.random() - 0.5) * 280;
+                let yMove = -(Math.random() * 15 + 10);
+                confetti.style.setProperty('--x', `${xMove}px`);
+                confetti.style.setProperty('--y', `${yMove}px`);
+                confetti.style.animation = `burst 0.6s cubic-bezier(0.1, 0.8, 0.3, 1) forwards`;
+                zone.appendChild(confetti);
+            }
+        }
+
+        function navigateHome() { 
+            document.getElementById('appProgress').style.width = `0%`; 
+            switchView('screenDashboard'); 
+        }
+    </script>
+</body>
+</html>
